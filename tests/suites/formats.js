@@ -233,3 +233,27 @@ test('Trailing separators', patch_date(function(Date){
         .datepicker('setValue');
     equal(this.input.val(), '29.02.2012.');
 }));
+
+test('Datepicker with Thai language and format "d-M-yyyy" should return buddhist year',function(){
+  this.input
+    .val('11-ก.ย.-2558')
+    .datepicker({language:'th-th',format:'d-M-yyyy'})
+    .datepicker('setValue');
+    equal(this.input.val(),'11-ก.ย.-2558');
+});
+
+test('Datepicker with Thai language and format "d-MM-yyyy" format should return buddhist year',function(){
+  this.input
+    .val('11-กันยายน-2558')
+    .datepicker({language:'th-th',format:'d-MM-yyyy'})
+    .datepicker('setValue');
+    equal(this.input.val(),'11-กันยายน-2558');
+});
+
+test('Datepicker with Thai language and format "d.M.yyyy" should return buddhist year',function(){
+  this.input
+    .val('11.เม.ย..2558')
+    .datepicker({language:'th-th',format:'d.M.yyyy'})
+    .datepicker('setValue');
+    equal(this.input.val(),'11.เม.ย..2558');
+});
